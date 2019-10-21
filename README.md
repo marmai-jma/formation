@@ -9,7 +9,7 @@ merci de ton aide en tout cas
      .-""""-.
     / -   -  \
    |  .-. .- |
-   |  \o| |o (
+   |  \o| |o (     git is better when it s public
    \     ^    \
    |'.  )--'  /|
   / / '-. .-'`\ \

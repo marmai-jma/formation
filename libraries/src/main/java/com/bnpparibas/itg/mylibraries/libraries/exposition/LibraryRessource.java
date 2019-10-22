@@ -1,5 +1,7 @@
-package com.bnpparibas.itg.mylibraries.libraries;
+package com.bnpparibas.itg.mylibraries.libraries.exposition;
 
+import com.bnpparibas.itg.mylibraries.libraries.application.LibraryService;
+import com.bnpparibas.itg.mylibraries.libraries.domain.library.Library;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +19,7 @@ public class LibraryRessource {
         return this.libraryService.create(library);
     }
 
-    @RequestMapping(method = RequestMethod.GET,path = {"/libraries/libraryId}"})
+    @RequestMapping(method = RequestMethod.GET,path = {"/libraries/{libraryId}"})
     public Library obtainLibrary (@PathVariable("libraryId") Long id){
         return this.libraryService.obtain(id);
     }

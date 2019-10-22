@@ -1,5 +1,9 @@
-package com.bnpparibas.itg.mylibraries.libraries;
+package com.bnpparibas.itg.mylibraries.libraries.application;
 
+import com.bnpparibas.itg.mylibraries.libraries.domain.exception.ErrorCodes;
+import com.bnpparibas.itg.mylibraries.libraries.domain.exception.MyLibraryException;
+import com.bnpparibas.itg.mylibraries.libraries.domain.library.Library;
+import com.bnpparibas.itg.mylibraries.libraries.infrastructure.LibraryDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +24,7 @@ public class LibraryService {
     public Library obtain (Long id){
         return this.libraryDAO
                 .findById(id)
-                .orElseThrow(()->new RuntimeException("LIBRARY NOT FOUND"));
+                .orElseThrow(()->new MyLibraryException(ErrorCodes.LIBRARY_NOT_FOUND));
     }
 
     public List <Library> findAll (){

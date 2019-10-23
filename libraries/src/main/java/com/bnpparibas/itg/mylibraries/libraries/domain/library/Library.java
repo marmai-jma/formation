@@ -1,28 +1,25 @@
 package com.bnpparibas.itg.mylibraries.libraries.domain.library;
 
-import javax.persistence.*;
+import com.bnpparibas.itg.mylibraries.libraries.domain.library.book.Book;
 
-@Entity(name = "LIBRARY")
+import java.util.List;
+
 public class Library {
-    @Id
-    @GeneratedValue
-    @Column(name = "ID")
     private Long id;
-    @Enumerated(EnumType.STRING)
-    @Column(name = "TYPE")
     private Type type;
-    @Embedded
     private Address address;
-    @Embedded
     private Director director;
+    private List<Book> books;
 
     private Library() {}
 
-    public Library(Long id, Type type, Address address, Director director) {
+    // public Library(Type type, Address address, Director director,List<Book> books) {
+    public Library(Long id, Type type, Address address, Director director,List<Book> books) {
         this.id = id;
         this.type = type;
         this.address = address;
         this.director = director;
+        this.books = books;
     }
 
     public void udpate(Library libraryWithNewData) {
@@ -45,5 +42,9 @@ public class Library {
 
     public Director getDirector() {
         return director;
+    }
+
+    public List<Book> getBooks() {
+        return books;
     }
 }

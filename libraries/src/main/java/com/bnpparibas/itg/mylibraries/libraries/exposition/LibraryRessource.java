@@ -15,23 +15,23 @@ public class LibraryRessource {
 
     @RequestMapping(method = RequestMethod.POST,path = {"/libraries/"})
     @ResponseStatus(HttpStatus.CREATED)
-    public Long createLibrary (@RequestBody Library library){
-        return this.libraryService.create(library);
+    public Long createLibrary (@RequestBody LibraryDTO libraryDTO){
+        return this.libraryService.create(LibraryAdapter.TransformToLibrary(libraryDTO));
     }
 
     @RequestMapping(method = RequestMethod.GET,path = {"/libraries/{libraryId}"})
-    public Library obtainLibrary (@PathVariable("libraryId") Long id){
-        return this.libraryService.obtain(id);
+    public LibraryDTO obtainLibrary (@PathVariable("libraryId") Long id){
+        return LibraryAdapter.adaptToLibraryDTO(this.libraryService.obtain(id));
     }
 
     @RequestMapping(method = RequestMethod.GET,path = {"/libraries/"})
-    public List<Library> findAllLibary (){
-        return this.libraryService.findAll();
+    public List<LibraryDTO> findAllLibary (){
+        return LibraryAdapter.adaptToLibraryDTOList(this.libraryService.findAll());
     }
 
     @RequestMapping(method = RequestMethod.PUT,path = {"/libraries/{libraryId}"})
-    public void updateLibrary (@PathVariable("libraryId") Long id, @RequestBody Library library){
-        this.libraryService.update(id, library);
+    public void updateLibrary (@PathVariable("libraryId") Long id, @RequestBody LibraryDTO libraryDTO){
+        this.libraryService.update(id, LibraryAdapter.TransformToLibrary(libraryDTO));
     }
 
     @RequestMapping(method = RequestMethod.DELETE,path = {"/libraries/{libraryId}"})

@@ -1,18 +1,9 @@
 package com.bnpparibas.itg.mylibraries.libraries.domain.library;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import java.util.StringTokenizer;
-
-@Embeddable
 public class Address {
-    @Column(name = "ADDRESS_ID")
     private int number;
-    @Column(name = "ADDRESS_STREET")
     private String street;
-    @Column(name = "ADDRESS_POSTALCODE")
     private int postalCode;
-    @Column(name = "ADDRESS_CITY")
     private String city;
 
     private Address() {}

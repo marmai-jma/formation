@@ -62,4 +62,19 @@ public class Library {
     public List<Book> getBooks() {
         return books;
     }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null){ return false;}
+        if (!this.getClass().isAssignableFrom(obj.getClass())){
+            return false;
+        }
+        Library that = this.getClass().cast(obj);
+        return that.id.equals(this.id);
+    }
 }

@@ -1,8 +1,11 @@
 package com.bnpparibas.itg.mylibraries.libraries.domain.library;
 
+import com.bnpparibas.itg.mylibraries.libraries.domain.exception.MyLibraryException;
 import com.bnpparibas.itg.mylibraries.libraries.domain.library.book.Book;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Library {
     private Long id;
@@ -20,14 +23,24 @@ public class Library {
         this.address = address;
         this.director = director;
         this.books = books;
+        validate();
     }
 
     public void udpate(Library libraryWithNewData) {
         this.type = libraryWithNewData.getType();
         this.address = libraryWithNewData.getAddress();
         this.director = libraryWithNewData.getDirector();
+        validate();
     }
 
+    public void validate(){
+        Set<String>errors = new HashSet<>();
+        this.director.validate(errors);
+        this.address.validate(errors);
+        if(!errors.isEmpty()){
+            throw(new MyLibraryException(errors));
+        }
+    }
     public Long getId() {
         return id;
     }

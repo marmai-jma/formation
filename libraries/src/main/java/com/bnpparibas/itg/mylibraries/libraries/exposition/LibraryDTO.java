@@ -1,18 +1,26 @@
 package com.bnpparibas.itg.mylibraries.libraries.exposition;
 
+import com.bnpparibas.itg.mylibraries.libraries.domain.exception.ErrorCodes;
 import com.bnpparibas.itg.mylibraries.libraries.domain.library.Type;
 import com.bnpparibas.itg.mylibraries.libraries.domain.library.book.LiteraryGenre;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 public class LibraryDTO {
     @JsonProperty
     Type type;
 
+    @Valid
+    @NotNull(message = ErrorCodes.LIBRARY_MUST_HAVE_AN_ADDRESS)
     @JsonProperty("address")
     AddressDTO addressDTO;
 
+    @Valid
+    @NotNull(message = ErrorCodes.LIBRARY_MUST_HAVE_A_DIRECTOR)
     @JsonProperty("director")
     DirectorDTO directorDTO;
 
@@ -41,6 +49,14 @@ public class LibraryDTO {
             this.surname = surname;
             this.name = name;
         }
+
+        public String getSurname() {
+            return surname;
+        }
+
+        public String getName() {
+            return name;
+        }
     }
 
     public static class BookDTO {
@@ -62,5 +78,9 @@ public class LibraryDTO {
         this.addressDTO = addressDTO;
         this.directorDTO = directorDTO;
         this.bookDTOList = bookDTOList;
+    }
+
+    public DirectorDTO getDirectorDTO() {
+        return directorDTO;
     }
 }

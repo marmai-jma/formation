@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 
 @Repository
 public class LibraryRepositoryImpl implements LibraryRepository {
+
     @Autowired
     private LibraryDAO libraryDAO;
 

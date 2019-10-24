@@ -1,10 +1,12 @@
 package com.bnpparibas.itg.mylibraries.libraries.domain.library;
 
+import com.bnpparibas.itg.mylibraries.libraries.domain.ddd.DDD;
 import com.bnpparibas.itg.mylibraries.libraries.domain.exception.ErrorCodes;
 import org.springframework.util.StringUtils;
 
 import java.util.Set;
 
+@DDD.ValueObject
 public class Director {
 
     private String surname;

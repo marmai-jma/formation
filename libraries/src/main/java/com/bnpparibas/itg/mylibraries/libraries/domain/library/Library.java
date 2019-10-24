@@ -1,5 +1,6 @@
 package com.bnpparibas.itg.mylibraries.libraries.domain.library;
 
+import com.bnpparibas.itg.mylibraries.libraries.domain.ddd.DDD;
 import com.bnpparibas.itg.mylibraries.libraries.domain.exception.MyLibraryException;
 import com.bnpparibas.itg.mylibraries.libraries.domain.library.book.Book;
 
@@ -7,6 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@DDD.AggregateRoot
 public class Library {
     private Long id;
     private Type type;

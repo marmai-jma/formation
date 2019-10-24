@@ -1,5 +1,6 @@
 package com.bnpparibas.itg.mylibraries.libraries.application;
 
+import com.bnpparibas.itg.mylibraries.libraries.domain.ddd.DDD;
 import com.bnpparibas.itg.mylibraries.libraries.domain.library.Library;
 import com.bnpparibas.itg.mylibraries.libraries.domain.library.LibraryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 
+@DDD.ApplicationService
 @Transactional
 @Service
 public class LibraryService {
